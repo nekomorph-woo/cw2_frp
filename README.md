@@ -3,74 +3,68 @@
 [![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://twitter.com/JBPlatform)
 [![Developers Forum](https://img.shields.io/badge/JetBrains%20Platform-Join-blue)][jb:forum]
 
-## Plugin template structure
+## 插件模板结构
 
-A generated project contains the following content structure:
+生成的项目包含以下内容结构：
 
 ```
 .
-├── .run/                   Predefined Run/Debug Configurations
-├── build/                  Output build directory
+├── .run/                   预定义的 Run/Debug 配置
+├── build/                  输出构建目录
 ├── gradle
 │   ├── wrapper/            Gradle Wrapper
-├── src                     Plugin sources
+├── src                     插件源代码
 │   ├── main
-│   │   ├── kotlin/         Kotlin production sources
-│   │   └── resources/      Resources - plugin.xml, icons, messages
-├── .gitignore              Git ignoring rules
-├── build.gradle.kts        Gradle build configuration
-├── gradle.properties       Gradle configuration properties
-├── gradlew                 *nix Gradle Wrapper script
-├── gradlew.bat             Windows Gradle Wrapper script
+│   │   ├── kotlin/         Kotlin 生产源代码
+│   │   └── resources/      资源文件 - plugin.xml、图标、消息
+├── .gitignore              Git 忽略规则
+├── build.gradle.kts        Gradle 构建配置
+├── gradle.properties       Gradle 配置属性
+├── gradlew                 *nix Gradle Wrapper 脚本
+├── gradlew.bat             Windows Gradle Wrapper 脚本
 ├── README.md               README
-└── settings.gradle.kts     Gradle project settings
+└── settings.gradle.kts     Gradle 项目设置
 ```
 
-In addition to the configuration files, the most crucial part is the `src` directory, which contains our implementation
-and the manifest for our plugin – [plugin.xml][file:plugin.xml].
+除了配置文件外，最重要的部分是 `src` 目录，其中包含我们的实现代码以及插件的清单文件 —— [plugin.xml][file:plugin.xml]。
 
 > [!NOTE]
-> To use Java in your plugin, create the `/src/main/java` directory.
+> 如果要在插件中使用 Java，请创建 `/src/main/java` 目录。
 
-## Plugin configuration file
+## 插件配置文件
 
-The plugin configuration file is a [plugin.xml][file:plugin.xml] file located in the `src/main/resources/META-INF`
-directory.
-It provides general information about the plugin, its dependencies, extensions, and listeners.
+插件配置文件是位于 `src/main/resources/META-INF` 目录下的 [plugin.xml][file:plugin.xml] 文件。
+它提供了关于插件的常规信息、依赖项、扩展点和监听器。
 
-You can read more about this file in the [Plugin Configuration File][docs:plugin.xml] section of our documentation.
+您可以在我们文档的 [Plugin Configuration File][docs:plugin.xml] 章节中了解更多关于此文件的信息。
 
-If you're still not quite sure what this is all about, read our
-introduction: [What is the IntelliJ Platform?][docs:intro]
+如果您还不太确定这是关于什么的，请阅读我们的介绍：
+[What is the IntelliJ Platform?][docs:intro]
 
-$H$H Predefined Run/Debug configurations
+## 预定义的 Run/Debug 配置
 
-Within the default project structure, there is a `.run` directory provided containing predefined *Run/Debug
-configurations* that expose corresponding Gradle tasks:
+在默认的项目结构中，提供了一个 `.run` 目录，其中包含预定义的 *Run/Debug 配置*，这些配置暴露了相应的 Gradle 任务：
 
-| Configuration name | Description                                                                                                                                                                         |
+| 配置名称           | 描述                                                                                                                                                                         |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Run Plugin         | Runs [`:runIde`][gh:intellij-platform-gradle-plugin-runIde] IntelliJ Platform Gradle Plugin task. Use the *Debug* icon for plugin debugging.                                        |
-| Run Tests          | Runs [`:test`][gradle:lifecycle-tasks] Gradle task.                                                                                                                                 |
-| Run Verifications  | Runs [`:verifyPlugin`][gh:intellij-platform-gradle-plugin-verifyPlugin] IntelliJ Platform Gradle Plugin task to check the plugin compatibility against the specified IntelliJ IDEs. |
+| Run Plugin         | 运行 [`:runIde`][gh:intellij-platform-gradle-plugin-runIde] IntelliJ Platform Gradle Plugin 任务。使用 *Debug* 图标进行插件调试。                                        |
+| Run Tests          | 运行 [`:test`][gradle:lifecycle-tasks] Gradle 任务。                                                                                                                                 |
+| Run Verifications  | 运行 [`:verifyPlugin`][gh:intellij-platform-gradle-plugin-verifyPlugin] IntelliJ Platform Gradle Plugin 任务，以检查插件与指定 IntelliJ IDE 的兼容性。 |
 
 > [!NOTE]
-> You can find the logs from the running task in the `idea.log` tab.
+> 您可以在 `idea.log` 标签页中找到运行任务的日志。
 
-## Publishing the plugin
+## 发布插件
 
 > [!TIP]
-> Make sure to follow all guidelines listed in [Publishing a Plugin][docs:publishing] to follow all recommended and
-> required steps.
+> 请务必遵循 [Publishing a Plugin][docs:publishing] 中列出的所有指南，以完成所有推荐和必需的步骤。
 
-Releasing a plugin to [JetBrains Marketplace](https://plugins.jetbrains.com) is a straightforward operation that uses
-the `publishPlugin` Gradle task provided by
-the [intellij-platform-gradle-plugin][gh:intellij-platform-gradle-plugin-docs].
+将插件发布到 [JetBrains Marketplace](https://plugins.jetbrains.com) 是一个简单的操作，使用的是
+[intellij-platform-gradle-plugin][gh:intellij-platform-gradle-plugin-docs] 提供的 `publishPlugin` Gradle 任务。
 
-You can also upload the plugin to the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/upload)
-manually via UI.
+您也可以通过 UI 手动将插件上传到 [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/upload)。
 
-## Useful links
+## 有用的链接
 
 - [IntelliJ Platform SDK Plugin SDK][docs]
 - [IntelliJ Platform Gradle Plugin Documentation][gh:intellij-platform-gradle-plugin-docs]

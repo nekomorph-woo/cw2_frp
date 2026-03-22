@@ -1,60 +1,75 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+本文件为 Claude Code (claude.ai/code) 在此代码仓库中工作时提供指导。
 
-## Project Overview
+## 项目概述
 
-This is an IntelliJ Platform Plugin project using Kotlin and Jetpack Compose for UI. The plugin uses Jewel (JetBrains Compose UI library) for building tool window interfaces.
+这是一个使用 Kotlin 和 Jetpack Compose 构建 UI 的 IntelliJ Platform 插件项目。该插件使用 Jewel（JetBrains Compose UI 库）来构建工具窗口界面。
 
-## Build Commands
+## 构建命令
 
 ```bash
-# Build the plugin
+# 构建插件
 ./gradlew buildPlugin
 
-# Run IDE with plugin (for development/testing)
+# 运行带插件的 IDE（用于开发/测试）
 ./gradlew runIde
 
-# Run tests
+# 运行测试
 ./gradlew test
 
-# Verify plugin compatibility
+# 验证插件兼容性
 ./gradlew verifyPlugin
 
-# Publish plugin to JetBrains Marketplace
+# 发布插件到 JetBrains Marketplace
 ./gradlew publishPlugin
 ```
 
-## Architecture
+## 架构
 
 - **Package**: `cw.chaos.cw2_frp`
 - **Target IDE**: IntelliJ IDEA 2025.2.4 (since-build: 252.25557)
 - **JVM**: Java 21
 - **Kotlin**: 2.1.20 with Compose compiler plugin
 
-### Key Files
+### 目录结构
 
-- `src/main/resources/META-INF/plugin.xml` - Plugin manifest defining extensions, dependencies, and tool windows
-- `src/main/kotlin/cw/chaos/cw2_frp/MyToolWindow.kt` - Tool window implementation using Jewel Compose
-- `build.gradle.kts` - Build configuration with IntelliJ Platform Gradle Plugin 2.10.2
+```
+.
+├── .run/                   Predefined Run/Debug Configurations
+├── build/                  Output build directory
+├── gradle
+│   └── wrapper/            Gradle Wrapper
+├── src                     Plugin sources
+│   ├── main
+│   │   ├── kotlin/         Kotlin production sources
+│   │   └── resources/      Resources - plugin.xml, icons, messages
+├── .gitignore              Git ignoring rules
+├── build.gradle.kts        Gradle build configuration
+├── gradle.properties       Gradle configuration properties
+├── gradlew                 *nix Gradle Wrapper script
+├── gradlew.bat             Windows Gradle Wrapper script
+├── README.md               README
+└── settings.gradle.kts     Gradle project settings
+```
 
-### Dependencies
+### 依赖
 
 - `com.intellij.modules.compose` - Compose UI support
 - `org.jetbrains.kotlin` - Kotlin plugin dependency
 - Jewel UI components (bundled with IntelliJ Platform)
 
-## UI Development
+## UI 开发
 
-The plugin uses Jewel (`org.jetbrains.jewel`) for Compose-based UI components within IntelliJ:
+该插件使用 Jewel (`org.jetbrains.jewel`) 在 IntelliJ 中构建基于 Compose 的 UI 组件：
 
-- Use `toolWindow.addComposeTab()` to add Compose content to tool windows
-- Available Jewel components: `Text`, `OutlinedButton`, `TextField`, etc.
-- Layout uses standard Compose modifiers and arrangements
+- 使用 `toolWindow.addComposeTab()` 向工具窗口添加 Compose 内容
+- 可用的 Jewel 组件：`Text`、`OutlinedButton`、`TextField` 等
+- 布局使用标准的 Compose modifiers 和 arrangements
 
-## Plugin Extension Points
+## 插件扩展点
 
-Tool windows are registered in `plugin.xml`:
+工具窗口在 `plugin.xml` 中注册：
 ```xml
 <extensions defaultExtensionNs="com.intellij">
     <toolWindow id="MyToolWindow" factoryClass="cw.chaos.cw2_frp.MyToolWindowFactory"
@@ -62,7 +77,7 @@ Tool windows are registered in `plugin.xml`:
 </extensions>
 ```
 
-## Logs
+## 日志
 
-When running via `runIde`, logs are available at:
+通过 `runIde` 运行时，日志位于：
 `build/idea-sandbox/system/log/idea.log`
