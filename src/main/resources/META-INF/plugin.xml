@@ -5,28 +5,46 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
-    <name>Cw2_frp</name>
+    <name>FRP Generator</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor url="https://github.com/nekomorph-woo">Nekomorph</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
+        Generate File Reference Pointer (FRP) for CLI AI tools like Claude Code.<br>
+        Select text in editor, right-click to generate reference format like:<br>
+        <code>#frp1 to src/main/java/Example.java #L20-30</code>
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.compose</depends>
-
     <depends>org.jetbrains.kotlin</depends>
+
     <resource-bundle>messages.MyMessageBundle</resource-bundle>
+
     <!-- Extensions defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="MyToolWindow" factoryClass="cw.chaos.cw2_frp.MyToolWindowFactory"
                     icon="AllIcons.Toolwindows.ToolWindowPalette"/>
+
+        <!-- 通知组 -->
+        <notificationGroup id="FRP Generator" displayType="BALLOON"/>
     </extensions>
+
+    <!-- Actions -->
+    <actions>
+        <!-- 编辑器右键菜单 -->
+        <group id="cw.chaos.cw2_frp.FRPActionGroup"
+               class="cw.chaos.cw2_frp.FRPActionGroup"
+               text="生成 FRP 引用"
+               description="生成文件引用指针并复制到剪贴板"
+               popup="true"
+               icon="AllIcons.Actions.Copy">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </group>
+    </actions>
 </idea-plugin>
