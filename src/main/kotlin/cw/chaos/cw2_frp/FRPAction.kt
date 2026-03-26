@@ -24,11 +24,9 @@ class FRPActionGroup : ActionGroup(
     }
 
     override fun update(e: AnActionEvent) {
-        val editor = e.getData(CommonDataKeys.EDITOR)
-        val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
-
-        // 只在编辑器中有文件时显示
-        e.presentation.isEnabledAndVisible = editor != null && virtualFile != null
+        // 始终显示菜单
+        e.presentation.isEnabled = true
+        e.presentation.isVisible = true
     }
 }
 
@@ -47,9 +45,9 @@ class FRPProjectTreeActionGroup : ActionGroup(
     }
 
     override fun update(e: AnActionEvent) {
-        val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
-        // 在项目树中选中文件/文件夹时显示
-        e.presentation.isEnabledAndVisible = virtualFile != null
+        // 始终显示菜单
+        e.presentation.isEnabled = true
+        e.presentation.isVisible = true
     }
 }
 
