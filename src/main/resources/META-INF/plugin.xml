@@ -1,7 +1,7 @@
  <!-- Plugin Configuration File: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN, cannot be changed between the plugin versions. -->
-    <id>cw.chaos.cw2_frp</id>
+    <id>cw.chaos.cw_2frp</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
@@ -29,7 +29,7 @@
     <!-- Extensions defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="MyToolWindow" factoryClass="cw.chaos.cw2_frp.MyToolWindowFactory"
+        <toolWindow id="MyToolWindow" factoryClass="cw.chaos.cw_2frp.MyToolWindowFactory"
                     icon="AllIcons.Toolwindows.ToolWindowPalette"/>
 
         <!-- 通知组 -->
@@ -39,8 +39,8 @@
     <!-- Actions -->
     <actions>
         <!-- 编辑器右键菜单 -->
-        <group id="cw.chaos.cw2_frp.FRPActionGroup"
-               class="cw.chaos.cw2_frp.FRPActionGroup"
+        <group id="cw.chaos.cw_2frp.FRPActionGroup"
+               class="cw.chaos.cw_2frp.FRPActionGroup"
                text="Gen #frp"
                description="生成文件引用指针并复制到剪贴板"
                popup="true"
@@ -49,8 +49,8 @@
         </group>
 
         <!-- 项目树右键菜单 -->
-        <group id="cw.chaos.cw2_frp.FRPProjectTreeActionGroup"
-               class="cw.chaos.cw2_frp.FRPProjectTreeActionGroup"
+        <group id="cw.chaos.cw_2frp.FRPProjectTreeActionGroup"
+               class="cw.chaos.cw_2frp.FRPProjectTreeActionGroup"
                text="Gen #frp"
                description="生成文件/文件夹引用指针并复制到剪贴板"
                popup="true"

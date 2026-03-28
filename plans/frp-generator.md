@@ -1,6 +1,6 @@
 # Plan: 文件引用指针生成器 (FRP Generator)
 
-> Source PRD: [GitHub Issue #1](https://github.com/nekomorph-woo/cw2_frp/issues/1)
+> Source PRD: [GitHub Issue #1](https://github.com/nekomorph-woo/cw_2frp/issues/1)
 
 ## 架构决策
 

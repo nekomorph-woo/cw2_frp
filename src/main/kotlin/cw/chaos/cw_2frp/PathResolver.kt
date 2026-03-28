@@ -1,4 +1,4 @@
-package cw.chaos.cw2_frp
+package cw.chaos.cw_2frp
 
 import java.io.File
 

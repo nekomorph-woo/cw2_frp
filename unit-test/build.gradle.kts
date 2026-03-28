@@ -13,7 +13,7 @@ repositories {
 sourceSets {
     named("main") {
         kotlin {
-            srcDir("../src/main/kotlin/cw/chaos/cw2_frp")
+            srcDir("../src/main/kotlin/cw/chaos/cw_2frp")
             // 排除需要 IntelliJ 依赖的文件
             exclude("MyToolWindow.kt")
             exclude("MyMessageBundle.kt")

@@ -1,4 +1,4 @@
-package cw.chaos.cw2_frp
+package cw.chaos.cw_2frp
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName

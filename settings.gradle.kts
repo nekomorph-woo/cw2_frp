@@ -1,3 +1,3 @@
-rootProject.name = "cw2_frp"
+rootProject.name = "cw_2frp"
 
 include("unit-test")

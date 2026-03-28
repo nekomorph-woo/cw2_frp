@@ -1,4 +1,4 @@
-package cw.chaos.cw2_frp
+package cw.chaos.cw_2frp
 
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType

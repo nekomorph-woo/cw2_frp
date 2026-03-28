@@ -27,7 +27,7 @@
 
 ## 架构
 
-- **Package**: `cw.chaos.cw2_frp`
+- **Package**: `cw.chaos.cw_2frp`
 - **Target IDE**: IntelliJ IDEA 2025.2.4 (since-build: 252.25557)
 - **JVM**: Java 21
 - **Kotlin**: 2.1.20 with Compose compiler plugin
@@ -72,7 +72,7 @@
 工具窗口在 `plugin.xml` 中注册：
 ```xml
 <extensions defaultExtensionNs="com.intellij">
-    <toolWindow id="MyToolWindow" factoryClass="cw.chaos.cw2_frp.MyToolWindowFactory"
+    <toolWindow id="MyToolWindow" factoryClass="cw.chaos.cw_2frp.MyToolWindowFactory"
                 icon="AllIcons.Toolwindows.ToolWindowPalette"/>
 </extensions>
 ```

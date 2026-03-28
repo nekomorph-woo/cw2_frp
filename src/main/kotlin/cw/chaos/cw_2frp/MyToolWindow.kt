@@ -1,4 +1,4 @@
-package cw.chaos.cw2_frp
+package cw.chaos.cw_2frp
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
